@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,6 +41,14 @@
             color: black;
             border-radius: 10px;
         }
+        #love-message {
+            font-size: 3rem;
+            color: #ff4081;
+            font-family: 'Brush Script MT', cursive;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -49,11 +57,16 @@
         <button id="yes">Yes</button>
         <button id="no">No</button>
     </div>
+    <h1 id="love-message">Te iubesc! ❤️</h1>
 
     <script>
         let yesButton = document.getElementById("yes");
         let noButton = document.getElementById("no");
+        let loveMessage = document.getElementById("love-message");
         let size = 1;
+
+        // Hide the love message initially
+        loveMessage.style.display = "none";
 
         noButton.addEventListener("click", function() {
             size += 0.3;
@@ -62,7 +75,14 @@
         });
 
         yesButton.addEventListener("click", function() {
-            alert("Yay! ❤️ Can't wait to celebrate with you!");
+            // Hide buttons
+            document.querySelector(".buttons").style.display = "none";
+            // Show and animate "Te iubesc!"
+            loveMessage.style.display = "block";
+            setTimeout(() => {
+                loveMessage.style.opacity = "1";
+                loveMessage.style.transform = "scale(1)";
+            }, 100);
         });
     </script>
 </body>
