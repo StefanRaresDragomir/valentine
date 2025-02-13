@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffdde1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        #yes {
+            background-color: #ff4081;
+            color: white;
+            border-radius: 10px;
+        }
+        #no {
+            background-color: #ccc;
+            color: black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? ❤️</h1>
+    <div class="buttons">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let size = 1;
+
+        noButton.addEventListener("click", function() {
+            size += 0.3;
+            yesButton.style.transform = `scale(${size})`;
+            noButton.style.transform = `scale(${1 / size})`;
+        });
+
+        yesButton.addEventListener("click", function() {
+            alert("Yay! ❤️ Can't wait to celebrate with you!");
+        });
+    </script>
+</body>
+</html>
